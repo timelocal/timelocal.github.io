@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Online time local algorithms</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Online time local. Synthesis of optimal online algorithms.">
+  <meta name="keywords" content="maciej,pacut,maciek,online,knapsack,time, timelocal, synthesis, generative, generation, program, algorithm, optimal, buffer, reordering,algorithms,networks,networking">
+  <meta name="author" content="Maciej Pacut">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; object-src 'self'">
+    <link rel="icon" href="./favicon.ico">
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  Online time local algorithms.
+
+  <p>
+
+Suitability for distributed applications. The simplicity of algorithms in
+time local model makes them particularly well suited for distributed applica tions.
+Possibility to automate algorithm design and analysis. We explore an
+intriguing link between de Brujin graphs and time local algorithms. We elabo rate more in Section TODO.
+Efficient implementation. Time local algorithms can be efficiently implemented. We elaborate more in Section A
+
+  </p>
+  <p>
+
+We propose a computation model, a variant of online algorithms [BE98], called
+online time local. In online time local, the set of available online algorithms
+is restricted to the algorithms whose configuration depends only on the last T
+requests seen, for a parameter T .
+(Note: Time local algorithms are memoryless, and do not have information
+about their own configuration from the previous time step.)
+
+  </p>
+
+<p>
+Encouraged by positive results for this fundamental online problem, we high light several other areas where time local algorithms may perform well.
+Distributed file management. An important class of online algorithms con cerns placement and migration of a resource in computer networks. The basic
+setting is called Online File Migration problem [BBM19]. The problem Sym metric Ski Rental can be viewed as a file migration problem on 2 point
+metric.
+More general distributed file management problems dealing with file repli cation and update are Page Replication and Page Allocation problems.
+Buffer management problems. Online algorithm for buffer management are
+natural candidates for time local studies. Buffer management algorithms run
+on forwarding network devices and match incoming packets to outgoing links
+by establishing a crossbar [SGMP99] (Virtual Input/Output Queues).
+An important problem in area of buffer management is Buffer Reorder-
+ing [KP10]. The proposed solutions for simple buffer management are often
+memoryless [Li11].
+
+</p>
+
+  <p>
+Efficient implementation of time local algo
+rithms.
+
+ Implementing in hardware as a boolean circuit. Performance measure:
+depth of the circuit.
+ Implementing as finite state automatons. States correspond to all possible
+visible history windows. Each state has a label with the output for the
+visible history window. The transition function depends on both the new
+request and the request leaving the visible history window.
+ Storing keys and values of the algorithm’s function in a hash table. Upon
+seeing an input window HT = hσ1 , σ2 , σ3, . . . , σT i, we compute the hash
+of HT and search the bucket at the computed index for the matching key.
+Using a rolling hash function [KR87, Rab81], we can efficiently compute
+the hash value for the successive input window hσ2 , σ3, σ4 , . . . , σT +1 i. In
+rolling hashes, to compute the hash for the next window, we use the hash
+value of the previous window, the value of a dropped old input and the
+value of the newest input.
+
+
+  </p>
+</body>
+  </html>
+  
